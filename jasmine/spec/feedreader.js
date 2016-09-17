@@ -36,14 +36,14 @@ $(function() {
 
         it('should have an URL', function() {
             // Same old for loop to check the feeds object
-            for (var i = 0; i < allFeeds.length; i++) {
+            allFeeds.forEach(function(feed) {
                 // Checks it has an "url"
                 expect(allFeeds[i].url).toBeDefined();
                 // Checks that the "url" is not empty
                 expect(allFeeds[i].url.length).not.toBe(0);
                 // Checks that the "url" is a string and not a boolean or number
                 expect(typeof allFeeds[i].url).toBe("string");
-            }
+            });
         });
 
 
@@ -54,17 +54,17 @@ $(function() {
 
         it('should have a name', function() {
             // Same old for loop to check the feeds object
-            for (var i = 0; i < allFeeds.length; i++) {
+            allFeeds.forEach(function(feed) {
                 // Checks that it has a "name"
-                expect(allFeeds[i].name).toBeDefined();
+                expect(feed.name).toBeDefined();
                 // Checks that the "name" is a string and not a boolean or number
-                expect(typeof allFeeds[i].name).toBe("string");
+                expect(typeof feed.name).toBe("string");
                 // Checks that the "name" is not empty
-                expect(allFeeds[i].name.length).not.toBe(0);
-            }
+                expect(feed.name.length).not.toBe(0);
+            });
         });
-
     });
+
 
     describe('The menu', function() {
         // Sets two variables to keep the code DRY and short
@@ -72,7 +72,7 @@ $(function() {
             main = document.body;
 
         //  This test ensures the menu element is hidden by default.
-                it('should be hidden by default', function() {
+        it('should be hidden by default', function() {
             expect(main.className).toContain("menu-hidden");
         });
 
