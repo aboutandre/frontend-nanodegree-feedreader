@@ -38,14 +38,13 @@ $(function() {
             // Same old for loop to check the feeds object
             allFeeds.forEach(function(feed) {
                 // Checks it has an "url"
-                expect(allFeeds[i].url).toBeDefined();
+                expect(feed.url).toBeDefined();
                 // Checks that the "url" is not empty
-                expect(allFeeds[i].url.length).not.toBe(0);
+                expect(feed.url.length).not.toBe(0);
                 // Checks that the "url" is a string and not a boolean or number
-                expect(typeof allFeeds[i].url).toBe("string");
+                expect(typeof feed.url).toBe("string");
             });
         });
-
 
         /* This test  loops through each feed
          * in the allFeeds object and ensures it has a name defined
@@ -64,7 +63,6 @@ $(function() {
             });
         });
     });
-
 
     describe('The menu', function() {
         // Sets two variables to keep the code DRY and short
@@ -94,7 +92,6 @@ $(function() {
             expect(main.className).toContain("menu-hidden");
 
         });
-
     });
 
     describe('Initial Entries', function() {
@@ -135,7 +132,6 @@ $(function() {
                     done();
                 });
             });
-
         });
 
         it("should change the content", function(done) {
@@ -144,7 +140,7 @@ $(function() {
             expect(oldFeed).not.toBe(newFeed);
             done();
         });
-
     });
 
+// Closes the $() function
 }());
